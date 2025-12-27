@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISAlight | Ihr Elektriker-Meisterbetrieb in Ihrer Nähe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FFC107; /* Helles Goldgelb */
+            --secondary-color: #3F51B5; /* Dunkles Blau */
+            --dark-bg: #212121; /* Dunkelgrau */
+            --light-bg: #F5F5F5; /* Helles Grau */
+            --text-color: #333333;
+            --white-color: #FFFFFF;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-medium: rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-bg);
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: var(--dark-bg);
+            color: var(--white-color);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px var(--shadow-medium);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--white-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--white-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1621905235277-33d3d574f8f4?auto=format&fit=crop&q=80&w=1920&h=800&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white-color);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            color: var(--white-color);
+            text-shadow: 2px 2px 8px var(--shadow-medium);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .btn:hover {
+            background-color: #FFD740; /* Etwas helleres Gelb */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px var(--shadow-medium);
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -15px;
+            border-radius: 2px;
+        }
+
+        /* --- Services Section --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--white-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border-bottom: 5px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px var(--shadow-medium);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .service-card .icon {
+            font-size: 3.5em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        /* --- About Section --- */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 40px;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow-light);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        /* --- Contact Section --- */
+        .contact {
+            background-color: var(--dark-bg);
+            color: var(--white-color);
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: var(--white-color);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+        }
+
+        .contact-item i {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #1a1a1a;
+            color: #AAAAAA;
+            padding: 30px 5%;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--white-color);
+        }
+
+        /* --- Modal (Contact Form) --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--white-color);
+            padding: 40px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            text-align: left;
+            box-shadow: 0 8px 40px var(--shadow-medium);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #aaa;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .modal-content h3 {
+            color: var(--dark-bg);
+            margin-bottom: 25px;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .modal-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .modal-form input[type="text"],
+        .modal-form input[type="email"],
+        .modal-form textarea {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .modal-form input:focus,
+        .modal-form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2);
+        }
+
+        .modal-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .modal-form button[type="submit"] {
+            width: 100%;
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-form button[type="submit"]:hover {
+            background-color: #303F9F; /* Dunkleres Blau */
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 5px 15px;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            section {
+                padding: 60px 20px;
+            }
+            section h2 {
+                font-size: 2em;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            .about-image {
+                margin-top: 20px;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            .btn {
+                padding: 12px 30px;
+                font-size: 1em;
+            }
+            .service-card {
+                padding: 20px;
+            }
+            .service-card .icon {
+                font-size: 3em;
+            }
+            .service-card h3 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">ISA<span>light</span></a>
+        <nav>
+            <ul>
+                <li><a href="#leistungen">Leistungen</a></li>
+                <li><a href="#ueber-uns">Über uns</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Ihr Elektriker-Meisterbetrieb ISAlight</h1>
+        <p>Wir bringen Ihre Elektrik zum Leuchten – sicher, modern und zuverlässig. <br>Ihr Partner für alle elektrischen Herausforderungen.</p>
+        <button class="btn" onclick="openModal()">Kostenlose Beratung anfragen</button>
+    </section>
+
+    <section id="leistungen">
+        <h2>Unsere Leistungen</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-bolt icon"></i>
+                <h3>Elektroinstallation</h3>
+                <p>Von der Neuinstallation bis zur umfassenden Sanierung – wir sorgen für sichere und zukunftsfähige Elektroanlagen in Ihrem Zuhause oder Betrieb.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-lightbulb icon"></i>
+                <h3>Lichtplanung & -design</h3>
+                <p>Wir entwickeln individuelle Lichtkonzepte, die Atmosphäre schaffen und Energie sparen. Für innen und außen.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-home icon"></i>
+                <h3>Smart Home & Gebäudeautomation</h3>
+                <p>Machen Sie Ihr Zuhause intelligent. Wir installieren und konfigurieren Systeme für Komfort, Sicherheit und Effizienz.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-tools icon"></i>
+                <h3>Wartung & Reparatur</h3>
+                <p>Professionelle Wartung und schnelle Reparaturen bei Störungen, um die Langlebigkeit und Sicherheit Ihrer Anlagen zu gewährleisten.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-solar-panel icon"></i>
+                <h3>Photovoltaik & E-Mobilität</h3>
+                <p>Beratung und Installation von PV-Anlagen sowie Ladeinfrastruktur für Elektrofahrzeuge. Nachhaltig in die Zukunft.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-shield-alt icon"></i>
+                <h3>Sicherheitstechnik</h3>
+                <p>Installation von Brandmeldeanlagen, Alarmanlagen und Videoüberwachung zum Schutz Ihres Eigentums.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ueber-uns" style="background-color: var(--white-color);">
+        <h2>Über ISAlight</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Bei ISAlight sind wir Ihr engagierter Elektriker-Meisterbetrieb mit langjähriger Erfahrung in der Branche. Wir stehen für Qualität, Zuverlässigkeit und innovative Lösungen.</p>
+                <p>Unser Ziel ist es, Ihnen nicht nur Strom, sondern auch Sicherheit und Komfort zu bieten. Wir nehmen uns Zeit für eine individuelle Beratung, planen sorgfältig und führen alle Arbeiten präzise und termingerecht aus. Ihre Zufriedenheit ist unser höchstes Gebot.</p>
+                <p>Vertrauen Sie auf unser Know-how, egal ob es um kleine Reparaturen, komplexe Neuinstallationen oder smarte Gebäudetechnik geht.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1582213782179-e0d0c22b379f?auto=format&fit=crop&q=80&w=600&h=400&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Elektriker bei der Arbeit">
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="contact">
+        <h2>Bereit für Ihr Projekt? Kontaktieren Sie uns\!</h2>
+        <p>Wir freuen uns darauf, Ihnen ein unverbindliches Angebot zu erstellen und Ihre Fragen zu beantworten.</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span><a href="tel:+491234567890" style="color:var(--white-color); text-decoration: none;">+49 123 4567890</a></span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span><a href="mailto:info@isalight.de" style="color:var(--white-color); text-decoration: none;">info@isalight.de</a></span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Musterstraße 123, 12345 Musterstadt</span>
+            </div>
+        </div>
+        <br>
+        <button class="btn" onclick="openModal()">Nachricht senden</button>
+    </section>
+
+    <footer>
+        &copy; 2025 ISAlight Elektrotechnik Meisterbetrieb. Alle Rechte vorbehalten.
+        <div>
+            <a href="#">Impressum</a> | 
+            <a href="#">Datenschutz</a>
+        </div>
+    </footer>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h3>Ihre Anfrage an ISAlight</h3>
+            <p>Bitte füllen Sie das Formular aus, wir melden uns umgehend bei Ihnen.</p>
+            <form action="DEINE_FORMULAR_ENDPUNKT_HIER" method="POST" class="modal-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+
+                <label for="phone">Telefon (optional):</label>
+                <input type="text" id="phone" name="phone" placeholder="Ihre Telefonnummer">
+
+                <label for="subject">Betreff:</label>
+                <input type="text" id="subject" name="subject" placeholder="z.B. Angebot Elektroinstallation" required>
+
+                <label for="message">Ihre Nachricht:</label>
+                <textarea id="message" name="message" rows="6" placeholder="Beschreiben Sie kurz Ihr Anliegen oder Projekt..." required></textarea>
+
+                <button type="submit">Nachricht senden</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("contactModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("contactModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById("contactModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
